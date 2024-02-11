@@ -1,0 +1,575 @@
+/* Write your CSS here */
+.money-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 32px;
+  margin-top: 32px;
+}
+
+.balance-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #ecfccb;
+  width: 100%;
+  border: 1px solid #84cc16;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.details-img {
+  width: 64px;
+  height: 64px;
+  margin: 24px;
+}
+
+.details-text {
+  color: #475569;
+  font-size: 12px;
+  font-family: 'Roboto';
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.details-money {
+  color: #475569;
+  font-size: 18px;
+  font-family: 'Roboto';
+  margin: 0px;
+}
+
+.income-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #cffafe;
+  width: 100%;
+  border: 1px solid #06b6d4;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.expenses-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #ede9fe;
+  width: 100%;
+  min-width: 200px;
+  border: 1px solid #7c3aed;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+
+
+
+
+
+
+// Write your code here
+import './index.css'
+
+const MoneyDetails = props => {
+  const {balanceAmount, incomeAmount, expensesAmount} = props
+
+  return (
+    <div className="money-details-container">
+      <div className="balance-container">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/money-manager/balance-image.png"
+          alt="balance"
+          className="details-img"
+        />
+        <div>
+          <p className="details-text">Your Balance</p>
+          <p className="details-money" data-testid="balanceAmount">
+            Rs {balanceAmount}
+          </p>
+        </div>
+      </div>
+      <div className="income-container">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/money-manager/income-image.png"
+          alt="income"
+          className="details-img"
+        />
+        <div>
+          <p className="details-text">Your Income</p>
+          <p className="details-money" data-testid="incomeAmount">
+            Rs {incomeAmount}
+          </p>
+        </div>
+      </div>
+      <div className="income-container">
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/money-manager/expenses-image.png"
+          alt="expenses"
+          className="details-img"
+        />
+        <div>
+          <p className="details-text">Your Expenses</p>
+          <p className="details-money" data-testid="expensesAmount">
+            Rs {expensesAmount}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default MoneyDetails
+
+
+
+
+
+
+/* Write your CSS here */
+.app-container {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.responsive-center {
+  width: 80px;
+  max-width: 550px;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/money-manager/money-manager-bg.png');
+  background-size: cover;
+  height: 150px;
+  border-radius: 16px;
+  margin-top: 64px;
+}
+
+.heading {
+  color: #475569;
+  font-family: 'Roboto';
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.header-content {
+  color: #475569;
+  font-family: 'Roboto';
+  font-size: 14px;
+  margin: 0px;
+}
+
+.money-manger-text {
+  color: #0b69ff;
+  font-weight: 500;
+}
+
+.transaction-details {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.transaction-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 42px;
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 24px;
+  padding-bottom: 32px;
+}
+
+.transaction-header {
+  color: #475569;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.input-label {
+  color: #76858e;
+  font-family: 'Roboto';
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 0px;
+}
+
+.input {
+  color: #1e293b;
+  background-color: #ffffff;
+  font-family: 'Roboto';
+  border: 1px solid #d7dfe9;
+  border-radius: 2px;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  min-width: 150px;
+}
+
+.button {
+  background-color: #0b69ff;
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 25px;
+  border-radius: 6px;
+  border: none;
+  padding: 15px;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.history-transaction {
+  width: 100%;
+  min-height: 300px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.transaction-container {
+  height: 100%;
+  border-radius: 8px;
+}
+
+.transaction-table {
+  padding-left: 0px;
+  margin: 0px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 48px;
+  list-style-type: none;
+  border: 1px solid #cbd5e1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.table-header-call {
+  color: #334155;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 500;
+  width: 30%;
+  border-right: none;
+}
+
+
+
+
+
+
+import {Component} from 'react'
+import {v4} from 'uuid'
+
+import TransactionItem from '../TransactionItem'
+import MoneyDetails from '../MoneyDetails'
+
+import './index.css'
+
+const transactionTypeOptions = [
+  {
+    optionId: 'INCOME',
+    displayText: 'Income',
+  },
+  {
+    optionId: 'EXPENSES',
+    displayText: 'Expenses',
+  },
+]
+
+// Write your code here
+
+class MoneyManager extends Component {
+  state = {
+    transactionsList: [],
+    titleInput: '',
+    amountInput: '',
+    optionId: transactionTypeOptions[0].optionId,
+  }
+
+  deleteTransaction = id => {
+    const {transactionsList} = this.state
+    const updatedTransactionList = transactionsList.filter(
+      eachTransaction => id !== eachTransaction.id,
+    )
+
+    this.setState({
+      transactionsList: updatedTransactionList,
+    })
+  }
+
+  onAddTransaction = event => {
+    event.preventDefault()
+    const {titleInput, amountInput, optionId} = this.state
+    const typeOption = transactionTypeOptions.find(
+      eachTransaction => eachTransaction.optionId === optionId,
+    )
+    const {displayText} = typeOption
+    const newTransaction = {
+      id: v4(),
+      title: titleInput,
+      amount: parseInt(amountInput),
+      type: displayText,
+    }
+
+    this.setState(prevState => ({
+      transactionsList: [...prevState.transactionsList, newTransaction],
+      titleInput: '',
+      amountInput: '',
+      optionId: transactionTypeOptions[0].optionId,
+    }))
+  }
+
+  onChangeOptionId = event => {
+    this.setState({optionId: event.target.value})
+  }
+
+  onChangeAmountInput = event => {
+    this.setState({titleInput: event.target.value})
+  }
+
+  getExpenses = () => {
+    const {transactionsList} = this.state
+    let expensesAmount = 0
+
+    transactionsList.forEach(eachTransaction => {
+      if (eachTransaction.type === transactionTypeOptions[1].displayText) {
+        expensesAmount += eachTransaction.amount
+      }
+    })
+
+    return expensesAmount
+  }
+
+  getIncome = () => {
+    const {transactionsList} = this.state
+    let incomeAmount = 0
+    transactionsList.forEach(eachTransaction => {
+      if (eachTransaction.type === transactionTypeOptions[0].displayText) {
+        incomeAmount += eachTransaction.amount
+      }
+    })
+
+    return incomeAmount
+  }
+
+  getBalance = () => {
+    const {transactionsList} = this.state
+    let balanceAmount = 0
+    let incomeAmount = 0
+    let expensesAmount = 0
+
+    transactionsList.forEach(eachTransaction => {
+      if (eachTransaction.type === transactionTypeOptions[0].displayText) {
+        incomeAmount += eachTransaction.amount
+      } else {
+        expensesAmount += eachTransaction.amount
+      }
+    })
+
+    balanceAmount = incomeAmount - expensesAmount
+
+    return balanceAmount
+  }
+
+  render() {
+    const {titleInput, optionId, transactionsList} = this.state
+    const balanceAmount = this.getBalance()
+    const incomeAmount = this.getIncome()
+    const expensesAmount = this.getExpenses()
+
+    return (
+      <div className="app-container">
+        <div className="responsive-container">
+          <div className="header-container">
+            <h1 className="heading">Hi, Richard</h1>
+            <p className="header-content">
+              Welcome back to your
+              <span className="money-manager-text">Money Manager</span>
+            </p>
+          </div>
+          <MoneyDetails
+            balanceAmount={balanceAmount}
+            incomeAmount={incomeAmount}
+            expensesAmount={expensesAmount}
+          />
+          <div className="transaction-details">
+            <form className="transaction-form" onSubmit={this.onAddTransaction}>
+              <h1 className="transaction-header">Add Transaction</h1>
+              <label className="input-label" htmlFor="title">
+                TITLE
+              </label>
+              <input
+                type="text"
+                id="title"
+                value={titleInput}
+                onChange={this.onChangeTitleInput}
+                className="input"
+                placeholder="TITLE"
+              />
+              <label className="input-label" htmlFor="amount">
+                AMOUNT
+              </label>
+              <input
+                type="text"
+                id="amount"
+                className="input"
+                onChange={this.onChangeAmountInput}
+                placeholder="AMOUNT"
+              />
+              <label className="input-label" htmlFor="select">
+                TYPE
+              </label>
+              <select
+                id="select"
+                className="input"
+                value={optionId}
+                onChange={this.onChangeOptionId}
+              >
+                {transactionTypeOptions.map(eachOption => (
+                  <option key={eachOption.optionId} value={eachOption.optionId}>
+                    {eachOption.displayText}
+                  </option>
+                ))}
+              </select>
+              <button type="submit" className="button">
+                Add
+              </button>
+            </form>
+            <div className="history-transactions">
+              <h1 className="transaction-header">History</h1>
+              <div className="transaction-table-container">
+                <ul className="transactions-table">
+                  <li className="table-header">
+                    <p className="table-header-cell">Title</p>
+                    <p className="table-header-cell">Amount</p>
+                    <p className="table-header-cell">Type</p>
+                  </li>
+                  {transactionsList.map(eachTransaction => (
+                    <TransactionItem
+                      key={eachTransaction.id}
+                      transactionDetails={eachTransaction}
+                      deleteTransaction={this.deleteTransaction}
+                    />
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+export default MoneyManager
+
+
+
+
+
+/* Write your CSS here */
+.table-row {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  border-bottom: 1px solid #cbd5e1;
+  border-left: 1px solid #cbd5e1;
+  border-right: 1px solid #cbd5e1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.transaction-text {
+  color: #475569;
+  font-family: 'Roboto';
+  font-size: 12px;
+  width: 30%;
+}
+
+.delete-container {
+  display: flex;
+  width: 10%;
+}
+
+.delete-img {
+  background: transparent;
+  width: 20px;
+  height: 20px;
+  align-self: center;
+  border: none;
+  outline: none;
+}
+
+.delete-button {
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+// Write your code here
+import './index.css'
+
+const TransactionItem = props => {
+  const {transactionDetails, deleteTransaction} = props
+  const {id, title, amount, type} = transactionDetails
+
+  const onDeleteTransaction = () => {
+    deleteTransaction(id)
+  }
+
+  return (
+    <li className="table-row">
+      <p className="transaction-text">{title}</p>
+      <p className="transaction-text">Rs {amount}</p>
+      <p className="transaction-text">{type}</p>
+      <div className="delete-container">
+        <button
+          className="delete-button"
+          type="button"
+          onClick={onDeleteTransaction}
+          data-testid="delete"
+        >
+          <img
+            className="delete-img"
+            src="https://assets.ccbp.in/frontend/react-js/money-manager/delete.png "
+            alt="delete"
+          />
+        </button>
+      </div>
+    </li>
+  )
+}
+
+export default TransactionItem
